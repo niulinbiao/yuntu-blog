@@ -1,0 +1,217 @@
+<!--index.wxml-->
+<wxs src="../../utils/dateutils.wxs" module="dateutils" />
+<wxs src="../../utils/util.wxs" module="commonutil" />
+
+<l-capsule-bar 
+hidden-capsule
+title="{{globalData.title}}"
+capsule-color="white" 
+bg-color="#ffffff">
+</l-capsule-bar>
+
+
+
+
+<!-- 弹出框 -->
+<van-toast id="van-toast" />
+<van-dialog id="van-dialog"	 />
+
+
+
+<!-- /* start */ -->
+<view class="container-outer">
+  
+  
+<view class="sw-top-article">
+  <!--轮播图-->
+     <swiper class='swiperClass' autoplay indicator-color="#a39f99" indicator-active-color="#f49641" indicator-dots  interval="5000" duration="5000" previous-margin="30px" next-margin="30px" circular bindchange="bindchange" style='height: {{swiperHeight}}px'>
+      <block wx:for="{{articleTopList}}" wx:key="index">
+      <swiper-item class="ws-top-article-item" data-article-item="{{item}}" bindtap="toArticleDetail">
+        <image src="{{commonutil.urlValidateUtil(item.thumbnail) ? item.thumbnail : globalData.domain+item.thumbnail }}" class="slide-image {{swiperIndex == index ? 'active' : 'quiet'}}" mode='aspectFill'>
+          <text>{{item.title}}</text>
+          <image  class="article-hot-icon" src="../../images/hot.png"></image>
+      </image>
+      </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+<!--金刚区  -->
+<l-card   type="primary" l-class="card"
+           full plaintext="{{true}}">
+    <view>
+      <l-segment active-color="#2E4053" inactive-color="#2E4053" height="120"  has-line="{{false}}"    >
+        <l-segment-item key="one" slot="one">
+          <view bindtap="toSearch" class="tab-item">
+            <view ><image class="seg-img2"  src="../../images/search.png"></image></view>
+            <view>搜索</view>
+          </view>
+        </l-segment-item>
+
+        <l-segment-item key="two" slot="two">
+          <view bindtap="toFriend" class="tab-item">
+            <view><image class="seg-img"  src="../../images/friends.png"></image></view>
+            <view>友情</view>
+          </view>
+        </l-segment-item>
+
+        <l-segment-item key="three" slot="three">
+          <view bindtap="toVideo" class="tab-item">
+            <view ><image class="seg-img"  src="../../images/video.png"></image></view>
+            <view>视频号</view>
+          </view>
+        </l-segment-item>
+
+        <l-segment-item key="four" slot="four">
+          <view bindtap="toStore" class="tab-item">
+            <view ><image class="seg-img"  src="../../images/store.png"></image></view>
+            <view>商店</view>
+          </view>
+        </l-segment-item>
+    </l-segment>  
+    </view>
+  </l-card>
+  <!-- 首页公告 -->
+  <l-card type="primary"
+          l-class="card"
+          full
+          plaintext="{{true}}">
+    <view class="notice-flex">
+    <!-- notice图片 -->
+      <view >
+       <image src="/images/notice.png" class="notice-img"></image>
+     </view>
+     <!-- 内容 -->
+      <view class="tongzhitext">
+         <text class="tongzhi-text">{{notice}}</text>
+     </view>
+    </view>
+  </l-card>
+
+
+
+
+<!-- 文章列表 -->
+  <l-list 
+    l-class="l-list-header"	
+    title="最新文章" 
+    icon="time"
+    
+    image="/images/article.png"
+    is-link="{{false}}"
+     />
+     <official-account style="margin-top: 5px;"></official-account>
+  <!-- 骨架屏 -->
+
+  <l-skeleton 
+  loading="{{index_skeleton_show}}"
+  paragraph="{{true}}"
+  title="{{true}}"
+  avatar="{{true}}"
+  avatar-size="32rpx"
+  avatar-shape="circle"
+  rows="3"
+  active="{{false}}"
+>
+  
+  <!-- 插槽内容 -->
+  <div  wx:for="{{articleList}}" wx:for-item="item" wx:key="index">
+  
+    <view class="ad-style" wx:if="{{ globalData.openAd && globalData.unitId && index % 5 == 4 }}" >
+      <ad-custom  style="width: 97%;"  unit-id="{{globalData.unitId}}"></ad-custom>
+    </view>
+
+   <!-- 卡片图片位置在最上方 -->
+    <l-card  type="cover" 
+           position="left"
+           l-class="card"
+           full
+           bindtap="toArticleDetail" data-article-item="{{item}}"
+           image="{{commonutil.urlValidateUtil(item.thumbnail) ? item.thumbnail : globalData.domain+item.thumbnail }}">
+           <!-- 置顶标签 -->
+           <view wx:if="{{item.topPriority >0 }}" class="right-top-tag-container">
+                    <l-tag  shape="circle"
+                    bg-color="#f3f3f3" 
+                    font-color="#0396FF" 
+                    size="mini">
+                    置顶
+                   </l-tag>
+              </view>
+            <!-- 封面全局数据 -->
+           <view class="right-content">
+              <view class="avter-content">
+                {{item.title}}
+              </view>
+              <view class="right-content-share">
+                 <view class="like-container">
+                  <l-icon name="time" color="#666" size="28" />
+                      <view class="number">
+                      {{dateutils.calculateTimeDistance((item.createTime))}}
+                      </view>
+                  </view>
+                  <view class="like-container">
+                      <l-icon name="eye" color="#666" size="28" />
+                      <view class="number">{{item.visits}}</view>
+                  </view>
+                  <view wx:if="{{item.commentCount > 0}}" class="like-container">
+                      <l-icon name="default" color="#666" size="28" />
+                      <view class="number">{{item.commentCount +' 评论'}}</view>
+                  </view>
+                </view>
+           </view>
+        </l-card>
+
+
+  </div>
+ <!-- ios底部留白专用 -->
+ <l-loadmore show="{{true}}" type="end" end-text="没有更多内容了哟~" loading-text="加载中~">
+           
+ </l-loadmore>
+  
+</l-skeleton>
+  
+</view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- 用户 openid -->
+  <!-- <view class="userinfo">
+    <block wx:if="{{canIUseOpenData}}" calss="userinfo-opendata">
+      <view class="userinfo-block-avatar" bindtap="bindViewTap">
+        <open-data type="userAvatarUrl"></open-data>
+      </view>
+    </block>
+    <block wx:elif="{{!hasUserInfo}}">
+      <button 
+        wx:if="{{canIUseGetUserProfile}}" 
+        bindtap="getUserProfile"
+        class="userinfo-avatar"
+        style="background-image: url({{avatarUrl}})"
+        size="default"
+      ></button>
+      <button
+        wx:else
+        open-type="getUserInfo" 
+        bindgetuserinfo="onGetUserInfo"
+        class="userinfo-avatar"
+        style="background-image: url({{avatarUrl}})"
+        size="default"
+      ></button>
+    </block>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-block-avatar" src="{{avatarUrl}}" mode="cover"></image>
+    </block>
+    <view class="userinfo-nickname-wrapper">
+      <button class="userinfo-nickname" bindtap="onGetOpenid">点击获取 openid</button>
+    </view>
+  </view> -->

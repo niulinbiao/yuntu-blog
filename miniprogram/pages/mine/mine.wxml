@@ -1,0 +1,133 @@
+<!--miniprogram/pages/mine/mine.wxml-->
+<wxs src="../../utils/dateutils.wxs" module="dateutils" />
+
+
+<!-- vant 弹出框 -->
+<van-dialog id="van-dialog" />
+
+<view class="my-info">
+  <image mode="heightFix" bindtap="onGetOpenid" class="avatar-img" src="{{authorInfo.avatar}}"></image>
+  <van-row>{{authorInfo.nickname}}</van-row>
+
+  <l-button wx:if="{{authorInfo.description}}" special="{{true}}" bindtap="doCopyDomain" >
+    <view class="domian-container" >
+      <van-icon  size="20" name="gem" color="" />
+      <text class="domain-describe">{{authorInfo.description}}</text>
+    </view>
+  </l-button>
+
+</view>
+
+<!-- 快捷区 -->
+<view class="padding flex text-center text-grey bg-white shadow-warp">
+    <view class="flex flex-sub flex-direction solid-right">
+      <view class="text-xxl text-orange">{{statisticsInfo.postCount}}</view>
+      <view class="margin-top-sm">
+        <text class="cuIcon-attentionfill"></text> 文章</view>
+    </view>
+    <view class="flex flex-sub flex-direction solid-right">
+      <view class="text-xxl text-blue">{{statisticsInfo.commentCount}}</view>
+      <view class="margin-top-sm">
+        <text class="cuIcon-favorfill"></text> 评论</view>
+    </view>
+    <view class="flex flex-sub flex-direction">
+      <view class="text-xxl text-green">{{statisticsInfo.journalCount}}</view>
+      <view class="margin-top-sm">
+        <text class="cuIcon-fork"></text> 日志</view>
+    </view>
+</view>
+<!-- 数据列表 -->
+<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+    <view class="cu-item arrow">
+      <view class="content" bindtap="CopyLink" data-link="https://github.com/weilanwl/ColorUI">
+        <text class="cuIcon-github text-grey"></text>
+        <text class="text-grey">GitHub</text>
+      </view>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/mine/about/about" hover-class="none">
+        <image src="/images/logo.png" class="png" mode="aspectFit"></image>
+        <text class="text-grey">关于本程序</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/collection/collection" hover-class="none">
+        <text class="cuIcon-favorfill text-red"></text>
+        <text class="text-grey">查看收藏</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/mine/journal/journal" hover-class="none">
+        <text class="cuIcon-formfill text-green"></text>
+        <text class="text-grey">日志</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <view class="content" bindtap="showQrcode">
+        <text class="cuIcon-appreciatefill text-red"></text>
+        <text class="text-grey">赞赏支持</text>
+      </view>
+    </view>
+    <view class="cu-item arrow">
+      <button class="cu-btn content" open-type="feedback">
+        <text class="cuIcon-writefill text-cyan"></text>
+        <text class="text-grey">意见反馈</text>
+      </button>
+    </view>
+    <view class="cu-item arrow">
+      <button class="cu-btn content" open-type="contact">
+        <text class="cuIcon-friend text-blue"></text>
+        <text class="text-grey">联系客服</text>
+      </button>
+    </view>
+  </view>
+<!-- lin-ui message -->
+<l-message />
+
+<!-- 全屏loadiing -->
+
+<l-loading
+  l-container-class="l-container"
+  bg-color="#f3f3f3"
+  z-index="776"
+  opacity="1"
+  show="{{loading}}"
+  full-screen="{{true}}"
+  type="flash"
+>
+</l-loading>
+
+
+<!-- 管理员登录 -->
+<l-dialog 
+  show="{{adminQ}}"
+  type="confirm"  
+  title="提问"
+  content="您是管理员吗？"
+  confirm-text="yes"
+  confirm-color="#f60"
+  cancel-text="no~"
+  locked="{{true}}"
+  bind:linconfirm="adminQConfirm"
+  bind:lincancel="adminQCancel"
+  cancel-color="rgb(95, 97, 212)" >
+  </l-dialog>
+
+   <!--  非管理员密钥比对 -->
+   <l-dialog 
+  show="{{keyInputShow}}"
+  type="confirm"  
+  locked="{{true}}"
+  show-title="{{true}}"
+  title="请输入密钥"
+  bind:linconfirm="validateAccessOK"
+  data-input-secret-key="{{inputSecretKey}}"
+>
+<l-input placeholder="请输入" type="password" bind:lininput="inputKeyOnChange" value="{{inputSecretKey}}" label="密钥" clear="{{true}}" required="{{true}}" />
+
+</l-dialog>
+
+
+  <van-cell title="管理" icon="/images/manager.png" >
+    <van-button   bindtap="showDoorForAdmin" type="warning" size="mini">管理入口</van-button>
+  </van-cell>

@@ -1,0 +1,28 @@
+<!--pages/workshop/huaban/huaban.wxml-->
+
+<cu-custom bgColor="bg-lightGrey" isBack="{{false}}" isCustom="{{true}}" isNav="{{false}}">
+	<view slot="backText">返回</view>
+	<view slot="content" class="text-shadow-meows">
+		<text class="text-white text-bold">小画板</text>
+	</view>
+</cu-custom>
+
+<view class="container">
+	<canvas canvas-id="canvas" disable-scroll='true' bindtouchstart="beginStroke" bindtouchmove="moveStroke" bindtouchend="endStroke" style="width:{{canvasWidth}}rpx;height:{{canvasHeight}}rpx"></canvas>
+</view>
+
+<view class="controller">
+	<view class="colorContr">
+		<block wx:for="{{colors}}" wx:key="key">
+			<button bindtap="selectColor" class="colorBtn {{curColor == item ? 'selected' : ''}}" data-value="{{item}}" style="background-color:{{item}}"></button>
+		</block>
+	</view>
+
+	<slider bindchange='changeBold' min="1" max="20" value="5" block-size="18" />
+	<button bindtap="clearCanvas" class="clearBtn">
+		<image src="./clear.png" mode="aspectFit"></image>
+	</button>
+	<button bindtap="eraser" class="clearBtn {{isEraser ? 'selected' : ''}}">
+		<image src="./xpc.png" mode="aspectFit"></image>
+	</button>
+</view>

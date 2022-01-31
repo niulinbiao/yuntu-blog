@@ -1,0 +1,12 @@
+/* pages/workshop/history/history.wxss */
+@import "../../../colorui/animation.wxss";
+
+.desc{
+  font-size: 28rpx;
+  color: gray;
+}
+.root{
+  padding: 15rpx;
+  border-bottom: 2px solid gainsboro;
+}
+

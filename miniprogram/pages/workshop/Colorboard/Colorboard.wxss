@@ -1,0 +1,30 @@
+/* pages/workshop/Colorboard/Colorboard.wxss */
+@import "../../../colorui/animation.wxss";
+
+/* 公告 */
+.board {
+  height: 9vh;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 4px solid lightgray;
+}
+.board-title {
+  width: 40%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center
+}
+.board text {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; 
+}
+.board-content {
+  font-size: 25rpx;
+  flex:1;
+  height: 100%;
+  line-height: 100%;
+}
+/* ============================= */

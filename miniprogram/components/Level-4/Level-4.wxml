@@ -1,0 +1,222 @@
+<!--components/Level-4/Level-4.wxml-->
+<view class="out color" style="--bgd-color:{{color.bgdcolor}};--light:{{color.light}};--medium:{{color.medium}};--dark:{{color.dark}};--bush:{{color.bush}};--trunk:{{color.trunk}};--trunk2:{{color.trunk2}};--cloud:{{color.cloud}};--sun:{{color.sun}};--rabbit:{{color.rabbit}};height:{{prop_height}}rpx;border-radius:{{prop_bdradius}}rpx;">
+	<!-- 内容 -->
+	<view class="container-self">
+		<!-- 季节 -->
+		<view class="season"></view>
+		<!-- 太阳 -->
+		<view class="sun"></view>
+		<!-- 彩虹 -->
+		<view class="rainbow {{display.rainbow === true ? 'animated' : ' '}}">
+			<!-- 7道颜色 -->
+			<block wx:for='{{7}}' wx:key='*this'>
+				<view class="rainbow-colour"></view>
+			</block>
+		</view>
+		<!-- 云组 -->
+		<view class="cloud-group">
+			<!-- 云1,2,3,4,5,6,7,8 -->
+			<block wx:for='{{8}}' wx:key='*this'>
+				<view class="cloud">
+					<view class="weather-container">
+						<block wx:for='{{20}}' wx:key='*this'>
+							<view class="snow" style="display: {{display.snow}};"></view>
+						</block>
+						<block wx:for='{{30}}' wx:key='*this'>
+							<view class="rain" style="display: {{display.rain}};"></view>
+						</block>
+					</view>
+				</view>
+			</block>
+		</view>
+		<!-- 地面地基 -->
+		<view class="base">
+			<!-- 草丛 -->
+			<view class="bush-group">
+				<block wx:for='{{9}}' wx:key='*this'>
+					<view class="bush"></view>
+				</block>
+			</view>
+			<!-- 兔子 -->
+			<view class="rabbit {{display.rabbit === true ? 'animated' : ' '}}">
+				<view class="head">
+					<view class="ear"></view>
+					<view class="ear"></view>
+				</view>
+			</view>
+			<!-- 树组 -->
+			<view class="tree-group">
+				<!-- 树1 -->
+				<view class="tree">
+					<view class="trunk"></view>
+					<view class="tree-top"></view>
+				</view>
+				<!-- 树2 -->
+				<view class="tree">
+					<view class="trunk"></view>
+					<view class="tree-top"></view>
+				</view>
+				<!-- 树3 -->
+				<view class="tree">
+					<view class="trunk"></view>
+					<view class="tree-top"></view>
+				</view>
+				<!-- 树4 -->
+				<view class="tree">
+					<view class="trunk"></view>
+					<block wx:for='{{12}}' wx:key='*this'>
+						<view class="branch"></view>
+					</block>
+				</view>
+				<!-- 树5 -->
+				<view class="tree">
+					<view class="trunk"></view>
+					<view class="tree-top"></view>
+					<view class="tree-top"></view>
+					<view class="branch-two">
+						<view class="tree-top"></view>
+					</view>
+					<view class="branch-two">
+						<view class="tree-top"></view>
+					</view>
+					<view class="branch-two">
+						<view class="tree-top"></view>
+					</view>
+				</view>
+				<!-- 树6 -->
+				<view class="tree">
+					<view class="trunk"></view>
+					<view class="tree-top"></view>
+				</view>
+				<!-- 树7 -->
+				<view class="tree">
+					<view class="trunk"></view>
+					<view class="tree-top"></view>
+				</view>
+				<!-- 树8 -->
+				<view class="tree">
+					<view class="trunk"></view>
+					<view class="tree-top">
+						<block wx:for='{{20}}' wx:key='*this'>
+							<view class="cone"></view>
+						</block>
+					</view>
+					<view class="tree-top"></view>
+					<view class="tree-top"></view>
+					<view class="flower {{display.flower === true ? 'animated' : ' '}}">
+						<view class="flower-in"></view>
+						<view class="petal"></view>
+						<view class="petal"></view>
+						<view class="petal"></view>
+					</view>
+					<view class="flower {{display.flower === true ? 'animated' : ' '}}">
+						<view class="flower-in"></view>
+						<view class="petal"></view>
+						<view class="petal"></view>
+						<view class="petal"></view>
+					</view>
+				</view>
+				<!-- 树9 -->
+				<view class="tree">
+					<view class="trunk"></view>
+					<view class="tree-top"> </view>
+				</view>
+				<!-- 树10 -->
+				<view class="tree">
+					<view class="trunk"></view>
+					<block wx:for='{{10}}' wx:key='*this'>
+						<view class="branch">
+							<view class="branch-in"></view>
+							<view class="pine-cone-row">
+								<view class="pine-cone"></view>
+								<view class="pine-cone"></view>
+								<view class="pine-cone"></view>
+								<view class="pine-cone"></view>
+								<view class="pine-cone"></view>
+								<view class="pine-cone"></view>
+								<view class="pine-cone"></view>
+							</view>
+						</view>
+					</block>
+				</view>
+				<!-- 树11 -->
+				<view class="tree">
+					<view class="trunk"></view>
+					<view class="tree-top"></view>
+					<view class="tree-top"></view>
+					<view class="tree-top"></view>
+				</view>
+				<!-- 树12 -->
+				<view class="tree">
+					<view class="trunk"> </view>
+					<view class="tree-top">
+						<block wx:for='{{20}}' wx:key='*this'>
+							<view class="cone"> </view>
+						</block>
+					</view>
+					<view class="tree-top"></view>
+					<view class="tree-top"></view>
+					<view class="flower {{display.flower === true ? 'animated' : ' '}}">
+						<view class="flower-in"></view>
+						<view class="petal"></view>
+						<view class="petal"></view>
+						<view class="petal"></view>
+					</view>
+					<view class="flower {{display.flower === true ? 'animated' : ' '}}">
+						<view class="flower-in"></view>
+						<view class="petal"></view>
+						<view class="petal"></view>
+						<view class="petal"></view>
+					</view>
+				</view>
+				<!-- 树13 -->
+				<view class="tree">
+					<view class="trunk"></view>
+					<view class="tree-top"> </view>
+					<view class="tree-top"></view>
+					<view class="tree-top"></view>
+					<view class="branch-two">
+						<view class="tree-top"></view>
+					</view>
+					<view class="branch-two">
+						<view class="tree-top"></view>
+					</view>
+				</view>
+				<!-- 树14 -->
+				<view class="tree">
+					<!-- 树干 -->
+					<view class="trunk"></view>
+					<!-- 树顶部 -->
+					<block wx:for='{{3}}' wx:key='*this'>
+						<view class="tree-top">
+							<block wx:for='{{20}}' wx:key='*this'>
+								<view class="cone"> </view>
+							</block>
+						</view>
+					</block>
+				</view>
+				<!-- 树15 -->
+				<view class="tree">
+					<view class="trunk"></view>
+					<view class="tree-top">
+						<block wx:for='{{20}}' wx:key='*this'>
+							<view class="cone"> </view>
+						</block>
+					</view>
+					<view class="tree-top">
+						<block wx:for='{{20}}' wx:key='*this'>
+							<view class="cone"> </view>
+						</block>
+					</view>
+					<view class="tree-top">
+						<block wx:for='{{40}}' wx:key='*this'>
+							<view class="cone"></view>
+						</block>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+
+	<button bindtap="changeSeason" class="btn-style">切换</button>
+</view>

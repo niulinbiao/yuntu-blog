@@ -1,0 +1,225 @@
+/**index.wxss**/
+
+
+
+
+page{
+  background-attachment: fixed;
+  background-color: #F3F5F7;
+  background-size: cover; 
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+ }
+
+.container-outer{
+
+  margin: 10px;
+  margin-bottom: 100px;
+  
+
+}
+
+/* 轮播 */
+.sw-top-article{
+  /* border: 1px blue solid; */
+  margin-top: 1px;
+
+}
+
+.swiperClass {
+  margin: 0;
+  margin-top: 10px;
+}
+
+.slide-image {
+  width: 100%; 
+  height: 90%;
+  border-radius: 10px;
+  position: relative;
+}
+
+image.active {
+  transform: none;
+  transition: all 0.5s ease-in 0s;
+} 
+
+image.quiet {
+  transform: scale(0.8333333);
+  transition: all 0.2s ease-in 0s;
+}
+
+
+
+.sw-top-article .ws-top-article-item{
+  position: relative;
+  justify-content: center;
+  /* border-radius: 40rpx; */
+}
+/* 热门icon */
+.sw-top-article .ws-top-article-item .article-hot-icon{
+  position: absolute;
+  height:25px;width:25px;
+  right: 20rpx;
+  top:5px;
+}
+/* title */
+.sw-top-article .ws-top-article-item text{
+  position: absolute;
+  color: #ffffff;
+  left: 10px;
+  font-size: 13px;
+  bottom:18px;
+}
+
+.l-list-header{
+  background-color: #ffffff;
+  padding-left: 3px;
+  border-radius: 10px;
+  margin-bottom: 2px;
+}
+
+.l-list-image-four{
+  padding: 5px;
+  background-color:#FFF6B7;
+  border-radius: 50%;
+}
+
+/* 所有卡片总体样式 */
+
+/* 文章 start */
+.card {
+  margin: 10rpx auto !important;
+  position: relative;
+  border-radius: 10px;
+}
+
+/* 卡片图片自定义样式 */
+.img-card {
+  height: 180rpx !important;
+  width: 220rpx !important;
+  object-fit: cover;
+  border-radius: 12rpx !important;
+}
+
+
+/* 图片另一侧整体 */
+.right-content{
+  position: relative;
+  padding-top: 19px;
+  height: 100%;
+}
+
+
+/* 内容 */
+.avter-content {
+  margin-top: 10rpx;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  color: #333;
+  font-size: 24rpx;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* 右上角标签 */
+.right-top-tag-container{
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+/* 左上角标签 */
+.left-top-tag-container{
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* 右侧文章阅读点赞标签 */
+.right-content-share{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+/* 左侧文章阅读点赞标签 */
+.left-content-share{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.like-container{
+  display: flex;
+  flex-direction: row;
+  margin-left: 10rpx;
+  align-items: center
+}
+
+.number{
+  color: #666;
+  font-size: 24rpx;
+  margin-left: 12rpx;
+}
+/* 文章css  -end */
+
+/* 金刚区图片 start */
+.seg-img{
+  width: 80rpx;
+  height: 80rpx;
+}
+.seg-img2{
+  width: 70rpx;
+  height: 70rpx;
+}
+/* 金刚区图片 end */
+
+/* 公告区start */
+.notice-flex {
+  display: flex;
+}
+
+.notice-img {
+  height: 30rpx;
+  width: 150rpx;
+ margin-right: 10rpx;
+}
+
+@keyframes remindMessage {
+  0% {
+    -webkit-transform: translateX(90%);
+  }
+
+  100% {
+    -webkit-transform: translateX(-90%);
+  }
+}
+
+.tongzhi-text {
+  font-size: 28rpx;
+  animation: remindMessage 10s linear infinite;
+  width: 100%;
+  display: block;
+  width: 500rpx;
+}
+.tongzhitext {
+  margin-right:80rpx;
+  margin-left: 10rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+/* 公告区end */
+
+
+
+

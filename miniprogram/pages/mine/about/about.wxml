@@ -1,0 +1,17 @@
+<cu-custom bgColor="bg-lightGrey" isBack="{{false}}" isCustom="{{true}}" isNav="{{false}}">
+	<view slot="backText">返回</view>
+	<view slot="content" class="text-shadow-meows">
+		<text class="text-white text-bold">关于</text>
+	</view>
+</cu-custom>
+<view class='margin-xl bg-white padding-xl radius shadow-lg'>
+  <view class='text-center margin-bottom text-lg  text-grey'>关于云图博客网</view>
+  <view class='text-content'>
+
+    <view class='margin-top-sm'>该项目后台基于Halo博客API进行开发，小程序后台还包含一部分云开发，前端UI包含ColorUI、LinUI以及VantUI</view>
+    <view class='margin-top-sm'>项目是开源的，不收取任何费用，如果这个项目有帮到你，或者你觉得很赞，可以在GitHub、Gitee里扫描赞赏码支持一下！</view>
+
+    <view class='margin-top-sm'>更多功能敬请期待！</view>
+    <view class='margin-top-sm'>欢迎使用该小程序！</view>
+  </view>
+</view>

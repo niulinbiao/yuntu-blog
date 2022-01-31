@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "l-capsule-bar":"../../lin-ui/dist/capsule-bar/index"
+  }
+}

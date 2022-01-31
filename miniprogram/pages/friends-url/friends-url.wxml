@@ -1,0 +1,23 @@
+<!-- 自定义导航栏 -->
+<l-capsule-bar
+bind:linlefttap="onClickLeft"
+home-page="/pages/index/index"
+capsule-color="white"
+title="友情链接"
+bg-color="#ffffff">
+</l-capsule-bar>
+<!-- 循环友情列表 -->
+<view wx:for="{{ friendUrls }}" wx:key="index"  style="margin-top: 10rpx;">
+    <l-card type="primary" 
+        bindtap="toFriends"
+        l-img-class="img-card"
+        data-appid="{{ item.appid }}"
+        data-path="{{ item.path }}" 
+        image="{{item.logo}}"
+        title="{{item.name}}">
+    <!-- 此处为content -->
+    <view class="content">
+       {{item.desc}}
+    </view>
+</l-card>
+</view>

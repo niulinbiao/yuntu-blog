@@ -1,0 +1,47 @@
+<!--pages/workshop/Colorboard/Colorboard.wxml-->
+<scroll-view scroll-y class="DrawerPage" scroll-with-animation="true" style="background-color: {{skin?'##FF8C00':'#ffffff'}};">
+
+<cu-custom bgColor="" isBack="{{false}}" isCustom="{{true}}" isNav="{{false}}">
+	<view slot="backText">返回</view>
+	<view slot="content" class="text-shadow-meows">
+		<text class="text-white text-bold">RGB配色板</text>
+	</view>
+</cu-custom>
+
+<view class="cu-bar justify-center bg-white margin-sm">
+	<view class="action sub-title">
+		<text class="text-xxl text-bold text-black">RGB配色板</text>
+		<text class="text-ABC text-black">RGB</text>
+		<!-- last-child选择器-->
+	</view>
+</view>
+
+<!-- 公告栏 -->
+<view class='board'>
+
+	<view class='board-title'>
+		<text style='color: orange;font-weight: bold;'>Systematic</text>
+		<view style='font-weight: bold;border-right: 1px solid lightgrey;padding-right: 5px;'>公告</view>
+	</view>
+
+	<view class='board-content'>
+		<swiper circular='true' autoplay interval="5000" duration="2000" style='height: 9vh;line-height:9vh;'>
+			<block wx:for="{{list}}" wx:for-index="i" wx:for-item="item" wx:key="key">
+				<swiper-item>
+					<text class="text-center text-lg text-shadow text-gray">{{item}}</text>
+				</swiper-item>
+			</block>
+		</swiper>
+	</view>
+
+</view>
+<!--=====公告栏=========-->
+
+</scroll-view>
+
+<view class="grid col-4 margin-bottom text-center" style="animation-delay: {{0.2*animationTime+1}}s;">
+
+	<view wx:for="{{LinksList}}" wx:key="item" wx:for-index="index" catchtap="prevent" data-rgb="{{item.RGB}}" class="padding-lg padding-tb-xl" style="animation-delay: {{(index+1)*0.2*animationTime}}s; background-color: {{item.RGB}};color: #fff;">{{item.RGB}}
+  </view>
+
+</view>

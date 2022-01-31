@@ -1,0 +1,69 @@
+<!--miniprogram/pages/journal/journal.wxml-->
+<wxs src="../../../utils/dateutils.wxs" module="dateutils" />
+
+<l-capsule-bar 
+title="个人随笔"
+bind:linlefttap="onClickLeft"
+home-page="/pages/mine/mine"
+capsule-color="white" 
+bg-color="transparent">
+  <image class="capsule-bar-bg" style="height:{{capsuleBarHeight}}rpx;" src="{{index_bg_image_url}}" />
+</l-capsule-bar>
+
+
+<van-search
+  clearable
+  bind:clear="onClear"	
+  value=""
+  shape="round"
+  background="white"
+  placeholder="请输入搜索关键词"
+/>
+
+<!-- 空状态 -->
+<view>
+ <van-empty 
+    wx:if="{{journalList.length == 0}}" 
+    class="custom-image-empty" 
+    description="随笔，记录当下" 
+   >
+    <van-image slot="image" fit="cover" width="400"  height="250" src="{{myStyle.emptyGif}}" />
+</van-empty>
+</view>
+
+
+ <view style="margin-bottom:50px"  >
+ <div   wx:if="{{journalList.length > 0}}" wx:for="{{journalList}}" wx:key="index">
+<!-- avatar -->
+<l-card type="avatar" full l-class="card" image="{{authorInfo.avatar}}"
+    title="{{authorInfo.nickname}}" describe="{{dateutils.dateTransfer(item.createTime)}}">
+        <!-- 此处为content -->
+        <view class="avter-content" style="user-select: text;">
+         <mp-html 
+          lazy-load
+          loading-img="{{myStyle.loadingGif}}"
+          scroll-table="{{true}}"
+          selectable="{{true}}"
+          markdown="{{true}}" 
+          tag-style="{{myStyle.tagStyle}}"
+          container-style="{{myStyle.containStyle}}"
+          content="{{item.sourceContent}}" />
+        </view>
+       
+        <view class="avter-share-container">
+        <view class="like-container" bindtap="onLikeAction" data-id="{{item.id}}"  >
+            <l-icon name="like"  color="red" size="28" />
+            <view class="number">{{item.likes}}</view>
+        </view>
+        <view class="like-container">
+            <l-icon name="comment"  color="#666" size="28" />
+            <view class="number">{{item.commentCount}}</view>
+        </view>
+        </view>
+  </l-card>
+</div>
+ <!-- ios底部留白专用 -->
+ <l-loadmore show="{{true}}" type="end" end-text="没有更多内容了哟~" loading-text="加载中~">
+           
+ </l-loadmore>
+</view>

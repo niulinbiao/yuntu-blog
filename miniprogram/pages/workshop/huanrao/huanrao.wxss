@@ -1,0 +1,62 @@
+/* pages/workshop/huanrao/huanrao.wxss */
+page {
+  background-color: black;
+}
+.box{
+	transform: scale(0.5);
+	position: relative;
+	padding: 1px;
+	height: 300px;
+	width: 300px;
+	margin:100px 20px;
+}	
+.sunline{
+	position:relative;
+	height: 400px;
+	width: 400px;
+	border: 2px solid rgb(65, 10, 218);
+	border-radius: 50%;
+	margin: 50px 0 0 50px;
+	display: flex;
+	animation: rotate 10s infinite linear;
+}
+.sun{
+	height: 100px;
+	width: 100px;
+	margin: auto;
+	background-color: red;
+	border-radius: 50%;
+	box-shadow: 5px 5px 10px red,-5px -5px 10px red,5px -5px 10px red,-5px 5px 10px red;
+}
+.earthline{
+	position: absolute;
+	right: 0;
+	top: 50%;
+	height: 200px;
+	width: 200px;
+	margin: -100px -100px 0 0;
+	border: 1px solid rgb(14, 247, 6);
+	border-radius: 50%;
+	display: flex;
+	animation: rotate 2s infinite linear;
+}
+.earth{
+	margin: auto;
+	height: 50px;
+	width: 50px;
+	background-color: blue;
+	border-radius: 50%;
+}
+.moon{
+	position: absolute;
+	left: 0;
+	top: 50%;
+	height: 20px;
+	width: 20px;
+	margin: -10px 0 0 -10px;
+	background-color: rgb(58, 10, 231);
+	border-radius: 50%;
+}
+@keyframes rotate{
+	100%{transform:rotate(360deg);}
+}

@@ -1,0 +1,17 @@
+<!--pages/workshop/huanrao/huanrao.wxml-->
+<cu-custom bgColor="bg-lightGrey" isBack="{{false}}" isCustom="{{true}}" isNav="{{false}}">
+	<view slot="backText">返回</view>
+	<view slot="content" class="text-shadow-meows">
+		<text class="text-white text-bold">日月环绕</text>
+	</view>
+</cu-custom>
+
+<view class="box">
+	<view class="sunline">
+		<view class="sun"></view>
+		<view class="earthline">
+			<view class="earth"></view>
+			<view class="moon"></view>
+		</view>
+	</view>
+</view>

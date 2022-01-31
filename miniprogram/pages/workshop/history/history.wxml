@@ -1,0 +1,17 @@
+<!--pages/workshop/history/history.wxml-->
+<cu-custom bgColor="" isBack="{{false}}" isCustom="{{true}}" isNav="{{false}}">
+	<view slot="backText">返回</view>
+	<view slot="content" class="text-shadow-meows">
+		<text class="text-white text-bold">历史上的今天</text>
+	</view>
+</cu-custom>
+
+<block wx:for="{{dataList}}" wx:for-index="index" wx:key="index">
+
+  <view class="root animation-slide-bottom" style="animation-delay: {{(index+1)*0.6*animationTime}}s;" data-link="{{item.link}}">
+    <text class="text-shadow text-black">{{item.year}}年{{yueRi}}</text>
+    <rich-text class="text-shadow {{colourList[(index+randomNum)%10].colour}}" nodes="{{item.title}}"></rich-text>
+    <rich-text nodes="{{item.desc}}" class="desc"></rich-text>
+  </view>
+
+</block>

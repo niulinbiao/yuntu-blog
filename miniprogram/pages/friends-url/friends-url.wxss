@@ -1,0 +1,7 @@
+/* pages/friends-url/friends-url.wxss */
+.img-card {
+  height: 180rpx !important;
+  width: 180rpx !important;
+  object-fit: cover;
+  border-radius: 12rpx !important;
+}

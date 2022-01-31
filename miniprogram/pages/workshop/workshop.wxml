@@ -1,0 +1,88 @@
+<!-- 自定义状态栏 bg-lightGrey -->
+<l-capsule-bar 
+hidden-capsule
+title="创意工坊"
+capsule-color="white" 
+bg-color="#ffffff">
+</l-capsule-bar>
+
+
+<!-- 一年四季： prop_height组件高度，prop_bdradius组件圆角大小 -->
+<Level-4 prop_height="450" prop_bdradius="30"></Level-4>
+
+
+
+<view class="grid col-3 padding-sm">
+
+	<!-- 小红旗start align-center justify-center -->
+	<view class="bg-red padding radius-lg margin-right-xxl margin-left text-center light me-wh">
+
+		<navigator url="../workshop/flag/flag" open-type="navigate">
+			<view>
+				<image class="cu-avatar lg bg-none" src="../../images/shop/qizhi.png"></image>
+			</view>
+			<text class="text-bold text-df">小红旗</text>
+		</navigator>
+	</view>
+	<!-- 小红旗end -->
+
+	<!-- 配色板 -->
+	<view class="bg-green padding radius-lg margin-right-xxl text-center light me-wh">
+
+	<navigator url="../workshop/Colorboard/Colorboard" open-type="navigate">
+		<view>
+			<image class="cu-avatar lg bg-none" src="../../images/shop/peise.png"></image>
+		</view>
+		<text class="text-bold text-df">配色板</text>
+		</navigator>
+	</view>
+	<!-- 配色板 -->
+
+	<!-- 历史上的今天 -->
+	<view class="bg-mauve padding radius-lg text-center light me-wh">
+	<navigator url="../workshop/history/history" open-type="navigate">
+		<view>
+			<image class="cu-avatar lg bg-none" src="../../images/shop/history.png"></image>
+		</view>
+		<text class="text-bold text-df">history</text>
+		</navigator>
+	</view>
+	<!-- 历史上的今天end -->
+
+
+	<!-- 树 -->
+	<view class="bg-blue padding radius-lg margin-right-xxl margin-lt  text-center light me-wh">
+	<navigator url="../workshop/yunduo/yunduo" open-type="navigate">
+		<view>
+			<image class="cu-avatar lg bg-none" src="../../images/tree3.png"></image>
+		</view>
+		<text class="text-bold text-df">生命树</text>
+		</navigator>
+	</view>
+	<!-- 树 -->
+
+	<!-- 日月环绕 -->
+	<view class="bg-cyan padding radius-lg margin-top margin-right-xxl text-center light me-wh">
+	<navigator url="../workshop/huanrao/huanrao" open-type="navigate">
+		<view>
+			<image class="cu-avatar lg bg-none" src="../../images/shop/huanrao.png"></image>
+		</view>
+		<text class="text-bold text-df">日月环绕</text>
+			</navigator>
+	</view>
+	<!-- 日月环绕 -->
+
+	<!-- 小画板 -->
+	<view class="bg-orange padding radius-lg margin-top text-center light me-wh">
+	<navigator url="../workshop/huaban/huaban" open-type="navigate">
+		<view>
+			<image class="cu-avatar lg bg-none" src="../../images/shop/huaban.png"></image>
+		</view>
+		<text class="text-bold text-df">小画板</text>
+		</navigator>
+	</view>
+	<!-- 小画板 -->
+
+
+
+</view>

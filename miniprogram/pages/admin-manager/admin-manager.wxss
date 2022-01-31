@@ -1,0 +1,17 @@
+/* miniprogram/pages/admin/admin.wxss */
+
+/*自定义字体*/
+
+.topStatistic .num{
+  
+  color: rgb(105, 128, 230);
+}
+
+
+
+
+.grid .su-item .su-text{
+  /* position: absolute; */
+  /* border: 1px blue solid; */
+  color: rgb(214, 208, 208);
+}
