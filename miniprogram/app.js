@@ -23,9 +23,9 @@ App({
     }
 
     this.globalData = {
-      domain:'https://halo-block-1gcmmxstc7b049ae-1307615934.ap-shanghai.app.tcloudbase.com',
-      baseUrl: 'https://halo-block-1gcmmxstc7b049ae-1307615934.ap-shanghai.app.tcloudbase.com/api', //api
-      api_access_key:"NIULINBIAO.521", //token
+      domain:'https://xxxx.com',
+      baseUrl: 'https://xxxxx.com/api', //api
+      api_access_key:"xxxxxxxxx", //token
       index_bg_image_url:"https://s4.ax1x.com/2022/01/24/7TtDJO.png",//首页背景
       title:"云图博客",//自定义title
       shareName:'各种资源分享',//小程序分享名称
