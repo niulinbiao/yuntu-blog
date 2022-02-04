@@ -97,12 +97,7 @@ onShareTimeline(){
       notice:app.globalData.config.notice
     })
     })
-    // console.log("原生广告ID:"+app.globalData.unitId)
-    // console.log("激励ID:"+app.globalData.unitId2)
-    // setTimeout(function(){
-    //   console.log("原生广告ID:"+app.globalData.unitId)
-    //   console.log("激励ID:"+app.globalData.unitId2)
-    // },1000)
+
     
   },
   // 轮播组件监听
