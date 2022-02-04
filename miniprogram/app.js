@@ -23,21 +23,21 @@ App({
     }
 
     this.globalData = {
-      domain:'https://halo-block-1gcmmxstc7b049ae-1307615934.ap-shanghai.app.tcloudbase.com',
-      baseUrl: 'https://halo-block-1gcmmxstc7b049ae-1307615934.ap-shanghai.app.tcloudbase.com/api', //api
-      api_access_key:"NIULINBIAO.521", //token
+      domain:'https://halo-block-1gcmmxstc7b049ae-1307615934.ap-shanghai.app.tcloudbase.com',   //自己的域名
+      baseUrl: 'https://halo-block-1gcmmxstc7b049ae-1307615934.ap-shanghai.app.tcloudbase.com/api', //自己的域名+/api
+      api_access_key:"xxxxxx", //token  halo后台自己设置
       index_bg_image_url:"https://s4.ax1x.com/2022/01/24/7TtDJO.png",//首页背景
       title:"云图博客",//自定义title
       shareName:'各种资源分享',//小程序分享名称
-      userInfo:undefined,//登录用户信息储存处
-      admin_token: undefined,//临时 token undefined
-      authorInfo:undefined,//作者信息
+      userInfo:undefined,//登录用户信息储存处   不用写
+      admin_token: undefined,//临时 token undefined  不用写
+      authorInfo:undefined,//作者信息  不用写
       myCollectArticle:'myCollectArticle',//云数据库 存放收藏文章
       openComment:true,//是否开启评论 true为开启 false为关闭
       openAd:false,//流量主开通则打开
-      unitId:'自己的原生模板广告ID',//原生模板广告ID  自定义的时候子集可以选择样式
+      unitId:'自己的原生模板广告ID',//原生模板广告ID  自定义的时候子集可以选择样式  也可以在全局配置中配置
       unitId2:'自己的视频激励广告ID',//视频激励广告--用于文章设置观看视频阅读更多功能
-      config:{},//全局配置
+      config:{},//全局配置  
     }
     // 获取系统状态栏信息
     wx.getSystemInfo({
@@ -55,24 +55,8 @@ App({
         }
       }
     })
-  //  全局配置
-  // this.getmyConfig().then(res =>{
-  //   this.globalData.config = res.data[0]
-  //   this.globalData.unitId = res.data[0].yuansheng_unitId
-  //   this.globalData.unitId2 = res.data[0].jili_unitId
-  // })
    
   },
-     // 获取全局变量
-    //  getmyConfig:function(){
-    //   var that = this
-    //   const db = wx.cloud.database();
-    //   db.collection('my-config').get()
-    //   .then(res=>{
-    //     console.log(res)
-    //    that.globalData.config = res.data[0]
-    //   })
-    // }
     /**
      * promise类型
      */
