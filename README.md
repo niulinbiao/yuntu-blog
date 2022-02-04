@@ -6,12 +6,11 @@
 - 下载后直接微信小程序开发工具打开即可。
 - 在app.js配置acess_key以及线上api地址
 -  联系方式（bug或者新功能添加请在仓库issue中提出）
-![](https://img.shields.io/badge/%E5%BE%AE%E4%BF%A1-sucfufufu620119-brightgreen)
-![](https://img.shields.io/badge/%E5%85%AC%E4%BC%97%E5%8F%B7-%E8%8B%8F%E5%85%8B%E5%88%86%E4%BA%AB-yellowgreen)
+![](https://img.shields.io/badge/%E5%BE%AE%E4%BF%A1-NLB_404-brightgreen)
+![](https://img.shields.io/badge/%E5%85%AC%E4%BC%97%E5%8F%B7-云图博客网-yellowgreen)
 
 ## 小程序体验
-
-![技术源share](https://cdn.jsdelivr.net/gh/wangsrGit119/wangsr-image-bucket/img-article/wechat-q-code.jpg)
+[![https://gitee.com/niusongcun/imghouse/raw/master/20220204/z6Nuj*1!Jc43.jpg](https://gitee.com/niusongcun/imghouse/raw/master/20220204/z6Nuj*1!Jc43.jpg)](https://gitee.com/niusongcun/imghouse/raw/master/20220204/z6Nuj*1!Jc43.jpg)
 
 -----
 
@@ -30,28 +29,31 @@
 - 基础配置（**重要**）
 
 ```
-    this.globalData = {
-      baseUrl: 'https://xxxxxx.cn/api', //api
-      api_access_key:"ssssss", //token
-      index_bg_image_url:"https://cdn.jsdelivr.net/gh/wangsrGit119/wangsr-image-bucket/img-article/photo-1507738978512-35798112892c.jfif",//首页背景
-      title:"",//自定义首页title
+     this.globalData = {
+      domain:'https://xxxx.com',   //自己的域名
+      baseUrl: 'https:/xxxx.com/api', //自己的域名+/api
+      api_access_key:"xxxx", //token  halo后台自己设置
+      index_bg_image_url:"https://s4.ax1x.com/2022/01/24/7TtDJO.png",//首页背景
+      title:"云图博客",//自定义title
+      shareName:'各种资源分享',//小程序分享名称
+      userInfo:undefined,//登录用户信息储存处   不用写
+      admin_token: undefined,//临时 token undefined  不用写
+      authorInfo:undefined,//作者信息  不用写
+      myCollectArticle:'myCollectArticle',//云数据库 存放收藏文章
+      openComment:true,//是否开启评论 true为开启 false为关闭
+      openAd:false,//流量主开通则打开
+      unitId:'自己的原生模板广告ID',//原生模板广告ID  自定义的时候子集可以选择样式  也可以在全局配置中配置
+      unitId2:'自己的视频激励广告ID',//视频激励广告--用于文章设置观看视频阅读更多功能
+      config:{},//全局配置  
     }
 ```
-   - baseUrl：基础的API（halo博客的）
-   - api_access_key ：博客后台开启api后设置的token
-   - index_bg_image_url：首页bar背景图片
-   - title ： 首页展示的标题
 
 
 - 云函数环境配置（**重要，不配置则小程序无法评论**）（因为用到了云函数所以需要在开发控制台开通云开发，并在app.js配置云环境ID）
 
 ```
  wx.cloud.init({
-        // env 参数说明：
-        //   env 参数决定接下来小程序发起的云开发调用（wx.cloud.xxx）会默认请求到哪个云环境的资源
-        //   此处请填入环境 ID, 环境 ID 可打开云控制台查看
-        //   如不填则使用默认环境（第一个创建的环境）
-        env: 'ssssssssssssssssss',
+		 env: 'ssssssssssssssssss',  //更换为自己的云函数环境
         traceUser: true,
       })
 ```
@@ -73,15 +75,10 @@
 }
 
 ```
-- 海报生成的二维码配置
-
-> `项目下路径` > `images` > `wechat-q-code.jpg`替换成自己的二维码  
 
 ## 鸣谢
  - Halo 高颜值轻便开源个人博客
  - lin-ui 简洁美观的小程序UI组件
  - mp-html 富文本和markdown渲染组件
  - vant 众多人喜欢的小程序渲染组件
- 
-## License
- MIT
+ -  color-ui 色彩绚丽的UI组件库
